@@ -1,0 +1,17 @@
+{
+    "name": "gerador_apostas_loterias_brasileiras",
+    "version": "1.0.0",
+    "description": "Gerador de apostas para o ",
+    "main": "run.js",
+    "scripts": {
+      "test": "jest"
+    },
+    "dependencies": {},
+    "devDependencies": {
+      "jest": "^29.0.0"
+    },
+    "jest": {
+      "testEnvironment": "node"
+    }
+  }
+  
