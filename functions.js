@@ -12,4 +12,23 @@ function inicializarContador(n) {
     return objeto;
 }
 
-module.exports = {inicializarContador};
+
+async function obterDados(loteria) {
+    try {
+        const response = await fetch(`https://loteriascaixa-api.herokuapp.com/api/${loteria}`);
+        if(response.status >= 400 && response.status < 500) {
+            throw new Error("Not found");
+        }
+        if(!response.ok) {
+            throw new Error("Erro");
+        }
+        const json = await response.json();
+        return json;
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+
+module.exports = {inicializarContador, obterDados};

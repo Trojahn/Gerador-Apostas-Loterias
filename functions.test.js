@@ -1,4 +1,4 @@
-const { inicializarContador } = require('./functions');
+const { inicializarContador, obterDados } = require('./functions');
 
 
 test('inicializarContador com N = 5 deve retornar um objeto com chaves de 1 a 5 e valores 0', () => {
@@ -15,4 +15,8 @@ test('inicializarContador com N negativo deve lançar um erro', () => {
 
 test('inicializarContador com N não inteiro deve lançar um erro', () => {
     expect(() => inicializarContador(4.5)).toThrow("O valor de N deve ser um número inteiro positivo.");
+});
+
+test('obterDados com loteria que nao existe', async () => {
+    await expect(obterDados("banana")).rejects.toThrow("Not found");
 });
