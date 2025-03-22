@@ -1,14 +1,15 @@
-const { inicializarContador, obterDados } = require('./functions');
+const { inicializarContador, obterDados, contabilizarOcorrencias } = require('./functions');
 
 
 
 async function main() {
     // Mega-sena
-    let quantidades = inicializarContador(60);
+    // TODO: Essa função é realmente necessária? (spoiler: não!). Remover em versão posterior.
     try {
-        const dados = await obterDados("banana");
-        console.log(dados);
-    } catch(error) {
+        let quantidades = inicializarContador(60);
+        const sorteios = await obterDados("megasena");
+        quantidades = contabilizarOcorrencias(sorteios, quantidades);
+    } catch (error) {
         console.log("Erro: ", error.message);
     }
 }
